@@ -69,7 +69,7 @@ class App extends Component {
     event.preventDefault()
     console.log("Pinning file to ipfs...")
     ipfs.add(this.state.buffer, (error, result) => {
-      console.log('Pinning', result)
+      console.log('Pinning: this is your hash, pls copy down', result[0].hash)
 
       if(error) {
         console.error(error)
@@ -80,7 +80,9 @@ class App extends Component {
         .then((r) => {
           return this.setState({ safetyPinHash: result[0].hash })
         })
+        window.alert(`This is your hash, pls kopi it down ${result[0].hash}, then click on metamask to confirm`)
     })
+
   }
 
   render() {
