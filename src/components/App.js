@@ -79,8 +79,8 @@ class App extends Component {
         .send({ from: this.state.account })
         .then((r) => {
           return this.setState({ safetyPinHash: result[0].hash })
-          return result[0].hash
         })
+        window.alert(`This is your hash, pls kopi it down ${result[0].hash}, then click on metamask to confirm`)
     })
 
   }
